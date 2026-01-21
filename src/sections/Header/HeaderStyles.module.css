@@ -1,0 +1,67 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 80px;
+  background-color: #ffffff00;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+.navLinks li a {
+  text-decoration: none;
+  color: var(--footer-text-color);
+  font-weight: 1000;
+  font-family: "Roboto Mono", monospace;
+  transition: color 0.2s;
+}
+
+.navLinks li a:hover {
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toggle {
+    display: block;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navLinks.active {
+    max-height: 300px; /* enough to show all links */
+  }
+
+  .navLinks li {
+    padding: 10px 20px;
+  }
+}

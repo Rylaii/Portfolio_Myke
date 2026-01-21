@@ -23,55 +23,59 @@ function Hero() {
   const avatarImg = theme === "light" ? heroImgLight : heroImg;
 
   return (
-    <section id="hero" className={styles.container}>
-      <div className={styles.colorModeContainer}>
-        <img
-          src={avatarImg}
-          className={styles.hero}
-          alt="Profile picture of Myke Xardan Bognalon"
-        />
-        <img
-          className={styles.colorMode}
-          src={themeIcon}
-          alt="Color mode icon"
-          onClick={toggleTheme}
-        />
-      </div>
-      <div className={styles.info}>
-        <h1>
-          Myke Xardan
-          <br />
-          Bognalon
-        </h1>
-        <h2>Software Developer</h2>
-        <span>
-          <a href="https://twitter.com/" target="_blank">
-            <img src={twitterIcon} alt="Twitter icon" />
-          </a>
-          <a href="https://github.com/" target="_blank">
-            <img src={githubIcon} alt="Github icon" />
-          </a>
-          <a href="https://linkedin.com/" target="_blank">
-            <img src={linkedinIcon} alt="Linkedin icon" />
-          </a>
-        </span>
-        <p className={styles.description}>
-          <Typewriter
-            words={[
-              "I’m a full-stack problem-solver who loves turning chaos into working systems, fixing bugs nobody else dares to touch, and sprinkling a little fun into every line of code I write.",
-            ]}
-            loop={5}
-            cursor
-            cursorStyle="|"
-            typeSpeed={40}
-            deleteSpeed={0}
+    <div>
+      <section id="hero" className={styles.container}>
+        <div className={styles.colorModeContainer}>
+          <img
+            src={avatarImg}
+            className={styles.hero}
+            alt="Profile picture of Myke Xardan Bognalon"
           />
-        </p>
-        <a href={CV} download>
-          {/* <button className="hover">Resume</button> */}
-        </a>
-      </div>
-    </section>
+          {/* <img
+            className={styles.colorMode}
+            src={themeIcon}
+            alt="Color mode icon"
+            onClick={toggleTheme}
+          /> */}
+        </div>
+        <div className={styles.info}>
+          <h1>
+            Myke Xardan
+            <br />
+            Bognalon
+          </h1>
+          <h2>Software Developer</h2>
+          <span>
+            <a href="https://twitter.com/" target="_blank">
+              <img src={twitterIcon} alt="Twitter icon" />
+            </a>
+            <a href="https://github.com/" target="_blank">
+              <img src={githubIcon} alt="Github icon" />
+            </a>
+            <a href="https://linkedin.com/" target="_blank">
+              <img src={linkedinIcon} alt="Linkedin icon" />
+            </a>
+          </span>
+          <span>
+            <p className={styles.description}>
+              <Typewriter
+                words={[
+                  "I’m a full-stack problem-solver who loves turning chaos into working systems, fixing bugs nobody else dares to touch, and sprinkling a little fun into every line of code I write.",
+                ]}
+                loop={5}
+                cursor
+                cursorStyle="|"
+                typeSpeed={50}
+                deleteSpeed={0}
+              />
+            </p>
+          </span>
+          <a href={CV} download>
+            {/* <button className="hover">Resume</button> */}
+          </a>
+        </div>
+      </section>
+    </div>
   );
 }
 

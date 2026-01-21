@@ -4,7 +4,8 @@
   text-align: center;
 
   img {
-    max-width: 250px;
+    height: 220px;
+    width: 400px;
     align-self: center;
     background-color: var(--project-card-bg);
     border-radius: 20px;
@@ -14,11 +15,15 @@
     width: fit-content;
     text-decoration: none;
     color: #222;
-    transition: transform 200ms ease-in-out;
+    transition: transform 300ms ease-in-out;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
   }
 
   a:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
   }
 }
 
