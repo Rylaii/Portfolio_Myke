@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./HeaderStyles.module.css";
-import logo from "../../assets/fresh-burger.png"; // replace with your logo
+// import logo from "../../assets/fresh-burger.png"; // replace with your logo
 import { useTheme } from "../../common/ThemeContext";
 import sun from "../../assets/sun.svg";
 import moon from "../../assets/moon.svg";
