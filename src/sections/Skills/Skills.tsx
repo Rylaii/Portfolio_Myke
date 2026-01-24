@@ -2,7 +2,7 @@ import styles from "./SkillsStyles.module.css";
 import checkMarkIconDark from "../../assets/checkmark-dark.svg";
 import checkMarkIconLight from "../../assets/checkmark-light.svg";
 import SkillList from "../../common/SkillList";
-import twitterLight from "../../assets/twitter-light.svg";
+// import twitterLight from "../../assets/twitter-light.svg";
 import { useTheme } from "../../common/ThemeContext";
 
 function Skills() {
