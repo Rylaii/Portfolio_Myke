@@ -13,7 +13,7 @@ import ts_svg from "../../assets/typescript-official-svgrepo-com.svg";
 import js_svg from "../../assets/javascript-svgrepo-com.svg";
 import SkillList from "../../common/SkillList";
 // import twitterLight from "../../assets/twitter-light.svg";
-import { useTheme } from "../../common/ThemeContext";
+// import { useTheme } from "../../common/ThemeContext";
 
 function Skills() {
   // const { theme } = useTheme();
