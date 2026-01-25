@@ -46,7 +46,7 @@ function Hero() {
             Bognalon
           </h1>
           <h2>Software Developer</h2>
-          <span>
+          {/* <span>
             <a href="https://twitter.com/" target="_blank">
               <img src={twitterIcon} alt="Twitter icon" />
             </a>
@@ -56,7 +56,7 @@ function Hero() {
             <a href="https://linkedin.com/" target="_blank">
               <img src={linkedinIcon} alt="Linkedin icon" />
             </a>
-          </span>
+          </span> */}
           <span>
             <p className={styles.description}>
               <Typewriter
