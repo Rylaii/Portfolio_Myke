@@ -5,8 +5,8 @@ interface SkillListProps {
 
 function SkillList({ src, skill }: SkillListProps) {
   return (
-    <span>
-      <img src={src} alt="Checkmark icon" />
+    <span className="skillItem">
+      <img src={src} alt={skill} />
       <p>{skill}</p>
     </span>
   );

@@ -3,12 +3,12 @@ import heroImg from "../../assets/Myke Avatar.png";
 import heroImgLight from "../../assets/Myke Avatar Light.png";
 // import sun from "../../assets/sun.svg";
 // import moon from "../../assets/moon.svg";
-import twitterLight from "../../assets/twitter-light.svg";
-import twitterDark from "../../assets/twitter-dark.svg";
-import githubLight from "../../assets/github-light.svg";
-import githubDark from "../../assets/github-dark.svg";
-import linkedinLight from "../../assets/linkedin-light.svg";
-import linkedinDark from "../../assets/linkedin-dark.svg";
+// import twitterLight from "../../assets/twitter-light.svg";
+// import twitterDark from "../../assets/twitter-dark.svg";
+// import githubLight from "../../assets/github-light.svg";
+// import githubDark from "../../assets/github-dark.svg";
+// import linkedinLight from "../../assets/linkedin-light.svg";
+// import linkedinDark from "../../assets/linkedin-dark.svg";
 import CV from "../../assets/cv.pdf";
 import { useTheme } from "../../common/ThemeContext";
 import { Typewriter } from "react-simple-typewriter";
@@ -18,9 +18,9 @@ function Hero() {
   const { theme } = useTheme();
 
   // const themeIcon = theme === "light" ? sun : moon;
-  const twitterIcon = theme === "light" ? twitterLight : twitterDark;
-  const githubIcon = theme === "light" ? githubLight : githubDark;
-  const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
+  // const twitterIcon = theme === "light" ? twitterLight : twitterDark;
+  // const githubIcon = theme === "light" ? githubLight : githubDark;
+  // const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
   const avatarImg = theme === "light" ? heroImgLight : heroImg;
 
   return (
@@ -46,7 +46,7 @@ function Hero() {
             Bognalon
           </h1>
           <h2>Software Developer</h2>
-          <span>
+          {/* <span>
             <a href="https://twitter.com/" target="_blank">
               <img src={twitterIcon} alt="Twitter icon" />
             </a>
@@ -56,7 +56,7 @@ function Hero() {
             <a href="https://linkedin.com/" target="_blank">
               <img src={linkedinIcon} alt="Linkedin icon" />
             </a>
-          </span>
+          </span> */}
           <span>
             <p className={styles.description}>
               <Typewriter
