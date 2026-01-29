@@ -22,7 +22,11 @@ function Skills() {
 
   return (
     <section id="skills" className={styles.container}>
-      <h1 className="sectionTitle">Skills</h1>
+      <div>
+        <h1 className="sectionTitle">Skills</h1>
+        <p className="description">These are the tools, technologies, and problem-solving capabilities I apply in real-world projects.</p>
+      </div>
+
       <div className={styles.skillList}>
         <SkillList src={angular_svg} skill="Angular" />
         <SkillList src={csharp_svg} skill="CSharp" />
@@ -48,3 +52,4 @@ function Skills() {
 }
 
 export default Skills;
+
