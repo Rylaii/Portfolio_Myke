@@ -40,8 +40,8 @@
 .navLinks li a {
   text-decoration: none;
   color: var(--footer-text-color);
-  font-weight: 700;
-  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+  font-family: sans-serif;
   transition: color 0.2s;
 }
 

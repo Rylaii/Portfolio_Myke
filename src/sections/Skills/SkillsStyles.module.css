@@ -1,7 +1,6 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* center everything horizontally */
+  flex-direction: column; 
   text-align: center;
   scroll-margin-top: 80px;
 }
