@@ -1,174 +1,184 @@
 .container {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  gap: 18px;
   scroll-margin-top: 80px;
 }
 
-form {
+.header {
+  text-align: left;
+}
+
+/* 1 column on mobile, 2 columns on desktop */
+.layout {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+  }
+}
+
+/* ---------- FORM ---------- */
+.form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 14px;
+
+  background: color-mix(in oklab, var(--background-color) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text-color) 12%, transparent);
+  border-radius: 16px;
+  padding: 18px;
 }
 
-textarea,
-input:not([type="submit"]) {
-  height: 50px;
-  padding-left: 16px;
-  width: 250px;
+.formTitle {
+  margin: 0;
+  text-align: left;
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--text-color);
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
 }
 
-textarea {
-  padding-top: 16px;
-  resize: none;
-  height: 250px;
+.formGroup {
+  width: 100%;
 }
 
-input,
-textarea {
-  border-radius: 5px;
-  border: #888 1px solid;
+/* Make inputs fluid (no fixed px widths) */
+.form input,
+.form textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--text-color) 18%, transparent);
   box-sizing: border-box;
-  justify-self: center;
   background-color: var(--background-color);
   color: var(--form-text-color);
+  padding: 12px 14px;
+  font-size: 16px;
 }
 
-::placeholder {
-  /* color: var(--form-text-color); */
+.form input {
+  min-height: 48px;
 }
 
-input[type="submit"] {
-  /* background-color: var(--btn-color);
-  color: var(--btn-text-color);
-  border: none;
-  border-radius: 20px;
-  width: 126px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-  margin: auto; */
-  padding: 10px;
+.form textarea {
+  min-height: 160px;
+  resize: vertical;
+  padding-top: 12px;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: color-mix(in oklab, var(--form-text-color) 70%, transparent);
+}
+
+/* Button */
+.submit {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
   background-color: #eecf70;
   color: #111;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1rem;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 250px;
-  margin: auto;
-}
-
-input[type="submit"]:hover {
-  transform: scale(1.05);
-}
-
-input[type="submit"]:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-}
-
-@media (width >= 800px) {
-  textarea,
-  input:not([type="submit"]) {
-    width: 600px;
-    font-size: 20px;
-  }
-  form {
-    gap: 40px;
-  }
-  input[type="submit"] {
-    margin: auto;
-    width: 600px;
-  }
-}
-
-@media (width >= 1400px) {
-  textarea,
-  input:not[type="submit"] {
-    width: 800px;
-  }
-  input[type="submit"] {
-    margin: auto;
-    width: 600px;
-  }
-}
-
-/* Contact Info */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 40px 0;
-}
-
-.col {
-  flex: 1 1 10%;
-  min-width: 250px;
-}
-
-.dbox {
-  background-color: var(--background-color);
-  color: #eee;
   border-radius: 10px;
-  padding: 30px 20px;
-  text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.dbox:hover {
-  /* transform: translateY(-5px); */
-  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); */
+.submit:hover {
+  transform: scale(1.02);
+}
+
+.submit:active {
+  transform: translateY(1px);
+}
+
+/* Screen-reader only label */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- CONTACT INFO ---------- */
+.infoGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infoCard {
+  background-color: var(--background-color);
+  border: 1px solid color-mix(in oklab, var(--text-color) 12%, transparent);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
 
 .icon {
-  font-size: 2rem;
+  font-size: 1.4rem;
   background-color: #eecf70;
   color: #111;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 15px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: 999px;
+  flex: 0 0 auto;
 }
 
 .text p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 .text span {
-  font-weight: bold;
+  font-weight: 700;
   color: #eecf70;
 }
 
 .text a {
-  color: #eee;
+  color: var(--text-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--text-color) 25%, transparent);
 }
 
 .text a:hover {
   color: #eecf70;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .col {
-    flex: 1 1 100%;
-  }
+  border-bottom-color: #eecf70;
 }

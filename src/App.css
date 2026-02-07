@@ -9,7 +9,7 @@
 }
 
 [data-theme="dark"] {
-  --background-color: #161616; /*222*/
+  --background-color: #161616;
   --btn-color: #fff;
   --btn-text-color: #353535;
   --project-card-bg: #fff;
@@ -18,11 +18,13 @@
   --footer-text-color: #bbb;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background-color);
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 60px;
+  margin: 0;
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
@@ -30,7 +32,11 @@ body {
     box-shadow 0.3s ease;
 }
 
+/* Center and constrain your whole app safely */
 #root {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 24px 16px 60px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -49,11 +55,6 @@ h2,
 h3,
 p {
   font-family: "Roboto Mono", monospace;
-}
-
-h1,
-h2 {
-  /* text-transform: uppercase; */
 }
 
 h2,
@@ -92,19 +93,25 @@ p {
   color: #888;
   margin-bottom: 24px;
   text-align: left;
-  max-width: 900px; /* prevents super wide line */
+  max-width: 900px;
   line-height: 1.6;
   font-family:
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+/* Clamp only on larger screens (optional but nicer) */
+@media (min-width: 640px) {
+  .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .hover {
@@ -139,47 +146,35 @@ body[data-theme="dark"] .bg-secondary {
 
 .bg-secondary {
   border: 1px solid #161616;
-  /* background-color: #353535; */
   color: #161616;
 }
 
-@media (width >= 800px) {
+@media (min-width: 800px) {
   #root {
     gap: 40px;
+    padding: 32px 24px 60px;
   }
+
   h1 {
     font-size: 40px;
   }
+
   h2,
   h3 {
     font-size: 24px;
   }
+
   p {
     font-size: 20px;
   }
-
-  /* .sectionTitle {
-    margin-bottom: 60px;
-  } */
-
-  @media (width >= 1400px) {
-    #root {
-      gap: 40px;
-    }
-    h1 {
-      font-size: 48px;
-    }
-    p {
-      text-align: center;
-    }
-
-    /* .sectionTitle {
-      margin-bottom: 75px;
-    } */
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
 }
 
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  p {
+    text-align: center;
+  }
+}
