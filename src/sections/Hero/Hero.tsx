@@ -32,7 +32,7 @@ function Hero() {
         link.href = CV;
         link.download = "CV.pdf";
         link.click();
-        
+
         Swal.fire({
           title: "Hooray!",
           text: "I'll be waiting for a call!",
@@ -98,13 +98,10 @@ function Hero() {
             </p>
           </span>
           <span>
-            {/* <a href={CV} download> */}
-            <a>
               <button className={styles.projects}>Resume</button>
               <button className={styles.hover} onClick={showAlert}>
                 View Projects
               </button>
-            </a>
           </span>
         </div>
       </section>
