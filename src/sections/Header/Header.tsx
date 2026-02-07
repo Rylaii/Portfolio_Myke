@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HeaderStyles.module.css";
-// import logo from "../../assets/fresh-burger.png"; // replace with your logo
 import { useTheme } from "../../common/ThemeContext";
 import sun from "../../assets/light-mode.png";
 import moon from "../../assets/dark-mode.png";
@@ -8,75 +7,34 @@ import moon from "../../assets/dark-mode.png";
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   const themeIcon = theme === "light" ? sun : moon;
 
-  // return (
-  //   <section id="header" className={styles.container}>
-  //     <nav className={styles.navbar}>
-  //       <img
-  //         className={styles.colorMode}
-  //         src={themeIcon}
-  //         alt="Color mode icon"
-  //         onClick={toggleTheme}
-  //         title="Toggle color mode"
-  //       />
-  //       {/* <div className={styles.logo}>
-  //         <a href="#">
-  //           <img src={logo} alt="Logo" />
-  //         </a>
-  //       </div> */}
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
-  //       <button
-  //         className={styles.toggle}
-  //         onClick={() => setIsOpen(!isOpen)}
-  //         aria-label="Toggle navigation"
-  //       >
-  //         &#9776; {/* hamburger icon */}
-  //       </button>
-
-  //       <ul className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}>
-  //         <li>
-  //           <a href="#hero">Home</a>
-  //         </li>
-  //         <li>
-  //           <a href="#projects">Projects</a>
-  //         </li>
-  //         <li>
-  //           <a href="#skills">Skills</a>
-  //         </li>
-  //         <li>
-  //           <a href="#contact">Contact</a>
-  //         </li>
-  //       </ul>
-  //     </nav>
-  //   </section>
-  // );
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <section id="header" className={styles.container}>
+    <header className={styles.header}>
       <nav className={styles.navbar}>
-        {/* Logo */}
-        <div className={styles.logo}>
-          <img
-            className={styles.colorMode}
-            src={themeIcon}
-            alt="Color mode icon"
-            onClick={toggleTheme}
-            title="Toggle color mode"
-          />
-        </div>
-
-        {/* Hamburger Menu */}
-        <button className={styles.toggle} onClick={toggleMenu}>
-          &#9776; {/* ☰ icon */}
+        {/* Theme toggle (acts like your logo area) */}
+        <button
+          type="button"
+          className={styles.themeBtn}
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          title="Toggle color mode"
+        >
+          <img className={styles.colorMode} src={themeIcon} alt="Theme icon" />
         </button>
 
-        {/* Navigation Links */}
-        <ul className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}>
+        {/* Desktop links */}
+        <ul className={styles.navLinksDesktop}>
           <li>
             <a href="#hero">Home</a>
           </li>
@@ -90,8 +48,53 @@ const Header: React.FC = () => {
             <a href="#contact">Contact</a>
           </li>
         </ul>
+
+        {/* Hamburger */}
+        <button
+          type="button"
+          className={styles.toggle}
+          onClick={() => setIsOpen((v) => !v)}
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+        >
+          <span className={styles.burgerLine} />
+          <span className={styles.burgerLine} />
+          <span className={styles.burgerLine} />
+        </button>
       </nav>
-    </section>
+
+      {/* Overlay */}
+      <div
+        className={`${styles.overlay} ${isOpen ? styles.show : ""}`}
+        onClick={closeMenu}
+      />
+
+      {/* Mobile drawer */}
+      <aside className={`${styles.drawer} ${isOpen ? styles.open : ""}`}>
+        <ul className={styles.navLinksMobile}>
+          <li>
+            <a href="#hero" onClick={closeMenu}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={closeMenu}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#skills" onClick={closeMenu}>
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={closeMenu}>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </header>
   );
 };
 

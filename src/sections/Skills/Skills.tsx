@@ -1,4 +1,6 @@
 import styles from "./SkillsStyles.module.css";
+import SkillList from "../../common/SkillList";
+
 import angular_svg from "../../assets/angular-svgrepo-com.svg";
 import csharp_svg from "../../assets/csharp-svgrepo-com.svg";
 import dotnet_svg from "../../assets/dotnet-svgrepo-com.svg";
@@ -11,45 +13,45 @@ import html_svg from "../../assets/html-5-svgrepo-com.svg";
 import css_svg from "../../assets/css3-svgrepo-com.svg";
 import ts_svg from "../../assets/typescript-official-svgrepo-com.svg";
 import js_svg from "../../assets/javascript-svgrepo-com.svg";
-import SkillList from "../../common/SkillList";
-// import twitterLight from "../../assets/twitter-light.svg";
-// import { useTheme } from "../../common/ThemeContext";
 
-function Skills() {
-  // const { theme } = useTheme();
-  // const checkMarkIcon =
-  //   theme === "light" ? checkMarkIconLight : checkMarkIconDark;
+const skills = [
+  { src: angular_svg, skill: "Angular" },
+  { src: csharp_svg, skill: "C#" },
+  { src: dotnet_svg, skill: ".NET" },
+  { src: mongoDb_svg, skill: "MongoDB" },
+  { src: mysql_svg, skill: "MySQL" },
+  { src: postman_svg, skill: "Postman" },
+  { src: react_svg, skill: "React" },
+  { src: php_svg, skill: "PHP" },
+  { src: html_svg, skill: "HTML" },
+  { src: css_svg, skill: "CSS" },
+  { src: ts_svg, skill: "TypeScript" },
+  { src: js_svg, skill: "JavaScript" },
+] as const;
 
+export default function Skills() {
   return (
     <section id="skills" className={styles.container}>
-      <div>
+      <div className={styles.header}>
         <h1 className="sectionTitle">Skills</h1>
-        <p className="description">These are the tools, technologies, and problem-solving capabilities I apply in real-world projects.</p>
+        <p className="description">
+          These are the tools, technologies, and problem-solving capabilities I
+          apply in real-world projects.
+        </p>
       </div>
 
-      <div className={styles.skillList}>
-        <SkillList src={angular_svg} skill="Angular" />
-        <SkillList src={csharp_svg} skill="CSharp" />
-        <SkillList src={dotnet_svg} skill="Dotnet" />
-        <SkillList src={mongoDb_svg} skill="MongoDB" />
-      </div>
-      <br />
-      <div className={styles.skillList}>
-        <SkillList src={mysql_svg} skill="Mysql" />
-        <SkillList src={postman_svg} skill="Postman" />
-        <SkillList src={react_svg} skill="React" />
-        <SkillList src={php_svg} skill="PHP" />
-      </div>
-      <br />
-      <div className={styles.skillList}>
-        <SkillList src={html_svg} skill="HTML" />
-        <SkillList src={css_svg} skill="CSS" />
-        <SkillList src={ts_svg} skill="Typescript" />
-        <SkillList src={js_svg} skill="Javascript" />
+      <div className={styles.skillGrid}>
+        {skills.map((s) => (
+          <SkillList
+            key={s.skill}
+            src={s.src}
+            skill={s.skill}
+            itemClassName={styles.skillItem}
+            iconClassName={styles.skillIcon}
+            labelClassName={styles.skillLabel}
+          />
+        ))}
       </div>
     </section>
   );
 }
-
-export default Skills;
-

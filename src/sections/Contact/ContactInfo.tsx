@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ContactStyles.module.css";
 
-// Define the type for each contact item
 interface ContactItem {
   label: string;
   value: string;
@@ -17,37 +16,32 @@ const contactItems: ContactItem[] = [
   },
   {
     label: "Phone",
-    value: "+639-159-024-439",
-    href: "tel://1234567920",
+    value: "+63 915 902 4439",
+    href: "tel:+639159024439",
     iconClass: "fa fa-phone",
   },
   {
     label: "Email",
     value: "mykexardantorresbognalon@mail.com",
-    href: "mailto:info@yoursite.com",
+    href: "mailto:mykexardantorresbognalon@mail.com",
     iconClass: "fa fa-paper-plane",
   },
 ];
 
 const ContactInfo: React.FC = () => {
   return (
-    <div className={styles.row}>
-      {contactItems.map((item, index) => (
-        <div key={index} className={styles.col}>
-          <div className={styles.dbox}>
-            <div className={styles.icon}>
-              <span className={item.iconClass}></span>
-            </div>
-            <div className={styles.text}>
-              <p>
-                <span>{item.label}:</span>{" "}
-                {item.href ? (
-                  <a href={item.href}>{item.value}</a>
-                ) : (
-                  item.value
-                )}
-              </p>
-            </div>
+    <div className={styles.infoGrid}>
+      {contactItems.map((item) => (
+        <div key={item.label} className={styles.infoCard}>
+          <div className={styles.icon}>
+            <span className={item.iconClass} />
+          </div>
+
+          <div className={styles.text}>
+            <p>
+              <span>{item.label}:</span>{" "}
+              {item.href ? <a href={item.href}>{item.value}</a> : item.value}
+            </p>
           </div>
         </div>
       ))}

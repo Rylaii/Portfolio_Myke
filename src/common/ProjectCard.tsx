@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC } from "react";
 
 interface ProjectCardProps {
   src: string;
@@ -8,9 +8,15 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({ src, link, h3, p }) => {
+  const isExternal = Boolean(link);
+
   return (
-    <a href={link} target="_blank">
-      <img className="hover" src={src} alt={`${h3} logo`} />
+    <a
+      href={link || "#"}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noreferrer" : undefined}
+    >
+      <img className="hover" src={src} alt={`${h3} logo`} loading="lazy" />
       <h3>{h3}</h3>
       <p>{p}</p>
     </a>

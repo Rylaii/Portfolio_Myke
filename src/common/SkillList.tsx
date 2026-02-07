@@ -1,15 +1,22 @@
 interface SkillListProps {
   src: string;
   skill: string;
+  itemClassName: string;
+  iconClassName: string;
+  labelClassName: string;
 }
 
-function SkillList({ src, skill }: SkillListProps) {
+export default function SkillList({
+  src,
+  skill,
+  itemClassName,
+  iconClassName,
+  labelClassName,
+}: SkillListProps) {
   return (
-    <span className="skillItem">
-      <img src={src} alt={skill} />
-      <p>{skill}</p>
-    </span>
+    <div className={itemClassName}>
+      <img className={iconClassName} src={src} alt={skill} loading="lazy" />
+      <p className={labelClassName}>{skill}</p>
+    </div>
   );
 }
-
-export default SkillList;
