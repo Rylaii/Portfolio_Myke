@@ -52,7 +52,11 @@
 
 /* Dark mode */
 body[data-theme="dark"] .navLinks li a:hover {
-  color: #ffffff; /* dark mode hover color */
+  color: #22c55e; /* dark mode hover color */
+}
+
+body[data-theme="dark"] .navLinks li a:active {
+  border-bottom: 2px solid #22c55e;
 }
 
 /* Responsive Mobile */

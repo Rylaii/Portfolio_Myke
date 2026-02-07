@@ -90,7 +90,7 @@ p {
 
 .description {
   color: #888;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
   text-align: left;
   max-width: 900px; /* prevents super wide line */
   line-height: 1.6;

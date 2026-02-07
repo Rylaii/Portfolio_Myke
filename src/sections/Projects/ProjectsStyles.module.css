@@ -24,7 +24,7 @@
   }
 
   a:hover {
-    /* transform: scale(1.1); */
+    transform: scale(1.02);
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
   }
@@ -78,7 +78,7 @@ body[data-theme="dark"] .projectsContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* keeps text starting from the left */
-  height: 480px;
+  height: 500px;
   width: 510px;
   margin-bottom: 25px;
   border-radius: 20px;
